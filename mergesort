@@ -1,0 +1,32 @@
+class Solution:
+    def merge(self, nums1: list[int], m: int, nums2: list[int], n: int) -> None:
+        """
+        Do not return anything, modify nums1 in-place instead.
+        """
+        j=0
+        k=0
+        _final=[]
+        if not nums1:
+            print("Num1 is empty")
+        if not nums2:
+            print("Num2 is empty")
+            return nums1
+        for i in range(m+n):
+            if k == n :
+                _final.extend(nums1[j:m])
+                nums1[:] = _final
+                return
+            if j == m :
+                _final.extend(nums2[k:n])
+                nums1[:] = _final
+                return
+            if  nums1[j] <= nums2[k] :
+                    _final.append(nums1[j])
+                    j=j+1
+            else:
+                    _final.append(nums2[k])
+                    k=k+1
+        nums1[:] = _final
+
+
+        
